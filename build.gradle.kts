@@ -1,5 +1,6 @@
 plugins {
     java
+    kotlin("jvm") version "1.8.0"
     id("org.springframework.boot") version "3.3.5"
     id("io.spring.dependency-management") version "1.1.6"
 }
@@ -31,6 +32,9 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation(kotlin("script-runtime"))
+    implementation(kotlin("stdlib"))
+
 }
 
 tasks.withType<Test> {

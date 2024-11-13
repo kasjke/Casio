@@ -4,7 +4,6 @@ import com.example.casio.dto.request.ProductRequestDto;
 import com.example.casio.dto.response.ProductResponseDto;
 import com.example.casio.model.Product;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface ProductMapper {

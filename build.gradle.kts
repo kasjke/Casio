@@ -34,7 +34,7 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation(kotlin("script-runtime"))
     implementation(kotlin("stdlib"))
-
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
 }
 
 tasks.withType<Test> {

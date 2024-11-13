@@ -36,7 +36,7 @@ dependencies {
     implementation(kotlin("stdlib"))
     testImplementation("com.h2database:h2")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
-
+    implementation("org.mapstruct:mapstruct:1.6.3")
 }
 
 tasks.withType<Test> {

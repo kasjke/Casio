@@ -1,24 +1,22 @@
 package com.example.casio.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
 @Getter
 @Setter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "products")
-public class Product {
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @NotEmpty
+    private long id;
     private String name;
-    @NotEmpty
-    private Long price;
-    private String description;
-
+    private String surname;
+    @Column(name = "email", unique = true)
+    private String email;
+    private String phoneNumber;
+    private String password;
 }

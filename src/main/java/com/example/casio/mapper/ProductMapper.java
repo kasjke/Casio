@@ -4,12 +4,13 @@ import com.example.casio.dto.request.ProductRequestDto;
 import com.example.casio.dto.response.ProductResponseDto;
 import com.example.casio.model.Product;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface ProductMapper {
 
-    public Product toModel(ProductRequestDto productRequestDto);
+    @Mapping(target = "id", ignore = true)
+    Product toModel(ProductRequestDto productRequestDto);
 
-    public ProductResponseDto toResponseDto(Product product);
-
+    ProductResponseDto toResponseDto(Product product);
 }

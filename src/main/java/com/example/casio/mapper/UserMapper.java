@@ -7,9 +7,12 @@ import com.example.casio.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
+import java.util.Optional;
+
 @Mapper(componentModel = "spring", config = MapperConf.class)
 public interface UserMapper {
     UserResponseDto toResponseDto(User user);
     User toEntity(UserRequestDto userRequestDto);
     void updateUserFromDto(UserRequestDto userRequestDto, @MappingTarget User user);
+
 }

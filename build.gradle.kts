@@ -1,4 +1,4 @@
-val mapstructVersion = "1.5.5.Final"
+val mapstructVersion = "1.6.3"
 
 plugins {
     java
@@ -38,6 +38,7 @@ dependencies {
     testImplementation("com.h2database:h2")
     implementation("org.springframework.boot:spring-boot-starter-validation:3.3.3")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
+
     implementation("org.mapstruct:mapstruct:${mapstructVersion}")
     annotationProcessor("org.mapstruct:mapstruct-processor:${mapstructVersion}")
 

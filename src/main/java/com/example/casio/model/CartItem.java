@@ -15,6 +15,7 @@ import lombok.*;
 public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -26,5 +27,5 @@ public class CartItem {
     private Product product;
 
     @Column(nullable = false)
-    private int quantity;
+    private Long quantity;
 }

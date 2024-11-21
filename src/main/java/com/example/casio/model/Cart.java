@@ -17,9 +17,13 @@ import java.util.List;
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
     private List<CartItem> items;
+
+    @Column(name = "total_price")
+    Long totalPrice;
 }

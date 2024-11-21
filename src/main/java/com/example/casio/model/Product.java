@@ -1,12 +1,12 @@
 package com.example.casio.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@ToString()
+@EqualsAndHashCode(of = "id")
 @Builder
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
@@ -17,10 +17,13 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
+
     @Column(name = "name")
     private String name;
+
     @Column(name = "price")
     private Long price;
+
     @Column(name = "description")
     private String description;
 

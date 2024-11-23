@@ -5,13 +5,11 @@ import lombok.*;
 
 @Getter
 @Setter
-@ToString()
-@EqualsAndHashCode(of = "id")
 @Builder
-@NoArgsConstructor(force = true)
+@NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "products")
 @Entity
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,5 +24,4 @@ public class Product {
 
     @Column(name = "description")
     private String description;
-
 }

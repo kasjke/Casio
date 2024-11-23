@@ -1,3 +1,5 @@
+val mapstructVersion = "1.6.3"
+
 plugins {
     java
     kotlin("jvm") version "1.8.0"
@@ -31,13 +33,16 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation(kotlin("script-runtime"))
     implementation(kotlin("stdlib"))
     testImplementation("com.h2database:h2")
+    implementation("org.springframework.boot:spring-boot-starter-validation:3.3.3")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
-    implementation("org.mapstruct:mapstruct:1.6.3")
-    annotationProcessor("org.mapstruct:mapstruct-processor:1.6.3")
+
+    implementation("org.mapstruct:mapstruct:${mapstructVersion}")
+    annotationProcessor("org.mapstruct:mapstruct-processor:${mapstructVersion}")
+
+
 }
 
 tasks.withType<Test> {

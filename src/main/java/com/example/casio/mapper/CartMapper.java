@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface CartMapper {
 
-    @Mapping(expression = "calculateTotalPrice()", target = "totalPrice")
+    @Mapping(expression = "java(cart.calculateTotalPrice())", target = "totalPrice")
     CartResponseDto toResponseDto(Cart cart);
 
     CartItemDto toItemDto(CartItem cartItem);

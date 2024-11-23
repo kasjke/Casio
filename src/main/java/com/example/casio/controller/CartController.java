@@ -39,7 +39,7 @@ public class CartController {
 
     @GetMapping("/total")
     public ResponseEntity<Long> getTotalPrice(@RequestParam Long userId) {
-        return ResponseEntity.ok(cartService.calculateTotalPrice(userId));
+        return ResponseEntity.ok(cartService.getTotalPrice(userId));
     }
 
     @DeleteMapping("/clear")

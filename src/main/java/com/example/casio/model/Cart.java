@@ -3,6 +3,7 @@ package com.example.casio.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 import java.util.List;
 
 @Getter
@@ -26,4 +27,10 @@ public class Cart {
 
     @Column(name = "total_price")
     Long totalPrice;
+
+    public Long calculateTotalPrice() {
+        return items.stream()
+                .mapToLong(cartItem -> cartItem.getProduct().getPrice() * cartItem.getQuantity())
+                .sum();
+    }
 }

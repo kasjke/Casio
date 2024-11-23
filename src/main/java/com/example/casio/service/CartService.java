@@ -12,7 +12,7 @@ public interface CartService {
 
     CartResponseDto removeItemFromCart(Long userId, Long productId);
 
-    Long calculateTotalPrice(Long userId);
+    Long getTotalPrice(Long userId);
 
     void clearCart(Long userId);
 }

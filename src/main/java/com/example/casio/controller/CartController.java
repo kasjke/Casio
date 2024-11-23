@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.*;
 public class CartController {
     private final CartService cartService;
 
-    @GetMapping
-    public ResponseEntity<CartResponseDto> getCart(@RequestParam Long userId) {
-        return ResponseEntity.ok(cartService.getCartByUserId(userId));
-    }
-
     @PostMapping("/items")
     public ResponseEntity<CartResponseDto> addItemToCart(@RequestParam Long userId,
                                                          @RequestParam Long productId,
                                                          @RequestParam int quantity) {
         return ResponseEntity.ok(cartService.addItemToCart(userId, productId, quantity));
+    }
+
+    @GetMapping
+    public ResponseEntity<CartResponseDto> getCart(@RequestParam Long userId) {
+        return ResponseEntity.ok(cartService.getCartByUserId(userId));
     }
 
     @PutMapping("/items/{productId}")

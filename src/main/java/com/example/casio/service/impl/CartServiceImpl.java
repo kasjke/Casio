@@ -11,21 +11,17 @@ import com.example.casio.repository.CartRepository;
 import com.example.casio.repository.ProductRepository;
 import com.example.casio.repository.UserRepository;
 import com.example.casio.service.CartService;
-import com.example.casio.service.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 
 @Service
 @RequiredArgsConstructor
 public class CartServiceImpl implements CartService {
 
-    private CartRepository cartRepository;
+    private final CartRepository cartRepository;
     private final CartMapper cartMapper;
     private final ProductRepository productRepository;
-    private final UserService userService;
     private final UserRepository userRepository;
 
     @Override

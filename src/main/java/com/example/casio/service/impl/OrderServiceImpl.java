@@ -9,7 +9,6 @@ import com.example.casio.model.OrderItem;
 import com.example.casio.model.Product;
 import com.example.casio.repository.OrderRepository;
 import com.example.casio.repository.ProductRepository;
-import com.example.casio.service.CartService;
 import com.example.casio.service.OrderService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +22,6 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
-    private final CartService cartService;
     private final ProductRepository productRepository;
     private final OrderMapper orderMapper;
 
@@ -48,27 +46,29 @@ public class OrderServiceImpl implements OrderService {
         order.setCreatedAt(new Date());
         order.calculateTotalPrice();
         order.setStatus(OrderStatus.IN_PROGRESS);
-        Order savedOrder = orderRepository.save(order);
+        final Order savedOrder = orderRepository.save(order);
         return orderMapper.toResponseDto(savedOrder);
     }
 
     @Override
     public List<OrderResponseDto> getOrdersByUserId(Long userId) {
-        return orderRepository.findByUserId(userId).stream()
+        final List<Order> orders = orderRepository.findByUserId(userId)
+                .orElseThrow(() -> new EntityNotFoundException("Orders not found"));
+        return orders.stream()
                 .map(orderMapper::toResponseDto)
                 .toList();
     }
 
     @Override
     public OrderResponseDto getOrderById(Long id) {
-        Order order = orderRepository.findById(id)
+        final Order order = orderRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Order not found"));
         return orderMapper.toResponseDto(order);
     }
 
     @Override
     public void cancelOrder(Long id) {
-        Order order = orderRepository.findById(id)
+        final Order order = orderRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Order not found"));
         order.setStatus(OrderStatus.CANCELED);
         orderRepository.save(order);

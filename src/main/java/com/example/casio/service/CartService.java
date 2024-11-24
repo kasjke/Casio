@@ -6,9 +6,9 @@ public interface CartService {
 
     CartResponseDto getCartByUserId(Long userId);
 
-    CartResponseDto addItemToCart(Long userId, Long productId, int quantity);
+    CartResponseDto addItemToCart(Long userId, Long productId, long quantity);
 
-    CartResponseDto updateItemQuantity(Long userId, Long productId, int newQuantity);
+    CartResponseDto updateItemQuantity(Long userId, Long productId, long newQuantity);
 
     CartResponseDto removeItemFromCart(Long userId, Long productId);
 

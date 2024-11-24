@@ -1,5 +1,6 @@
 package com.example.casio.mapper;
 
+import com.example.casio.configuration.MapperConf;
 import com.example.casio.dto.CartItemDto;
 import com.example.casio.dto.response.CartResponseDto;
 import com.example.casio.model.Cart;
@@ -9,7 +10,7 @@ import org.mapstruct.Mapping;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(config = MapperConf.class)
 public interface CartMapper {
 
     @Mapping(expression = "java(cart.calculateTotalPrice())", target = "totalPrice")

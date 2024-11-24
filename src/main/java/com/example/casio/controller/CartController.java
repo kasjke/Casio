@@ -15,7 +15,7 @@ public class CartController {
     @PostMapping("/items")
     public ResponseEntity<CartResponseDto> addItemToCart(@RequestParam Long userId,
                                                          @RequestParam Long productId,
-                                                         @RequestParam int quantity) {
+                                                         @RequestParam Long quantity) {
         return ResponseEntity.ok(cartService.addItemToCart(userId, productId, quantity));
     }
 
@@ -27,7 +27,7 @@ public class CartController {
     @PutMapping("/items/{productId}")
     public ResponseEntity<CartResponseDto> updateItemQuantity(@RequestParam Long userId,
                                                               @PathVariable Long productId,
-                                                              @RequestParam int newQuantity) {
+                                                              @RequestParam Long newQuantity) {
         return ResponseEntity.ok(cartService.updateItemQuantity(userId, productId, newQuantity));
     }
 

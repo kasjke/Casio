@@ -14,8 +14,6 @@ import org.mapstruct.Mapping;
 public interface OrderMapper {
 
     @Mapping(target = "user.id", source = "userId")
-    @Mapping(target = "status", constant = "IN_PROGRESS")
-    @Mapping(target = "createdAt", expression = "java(new java.util.Date())")
     Order toEntity(OrderRequestDto orderRequestDto);
 
     @Mapping(target = "userId", source = "user.id")
